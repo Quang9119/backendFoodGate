@@ -31,6 +31,14 @@ public class CustomerRestaurantController {
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
 
     }
+    @GetMapping()
+    public ResponseEntity<List<Restaurant>> getAllRestaurant(@RequestHeader("Authorization") String jwt) throws Exception {
+
+        User user = userService.findUserByJwtToken(jwt);
+        List<Restaurant> restaurants = restaurantService.getAllRestaurants();
+        return new ResponseEntity<>(restaurants, HttpStatus.OK);
+
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Restaurant> findRestaurantById(@RequestHeader("Authorization") String jwt,

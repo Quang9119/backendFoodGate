@@ -4,7 +4,7 @@ import com.example.footgate.config.JwtUtilsHelper;
 import com.example.footgate.entities.Cart;
 import com.example.footgate.entities.USER_ROLE;
 import com.example.footgate.entities.User;
-import com.example.footgate.repository.CartRepository;
+import com.example.footgate.repository.CartRepositoty;
 import com.example.footgate.repository.UserRepository;
 import com.example.footgate.request.LoginRequest;
 import com.example.footgate.response.AuthResponse;
@@ -21,8 +21,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collection;
 
 @RestController
 @RequestMapping("/auth")
@@ -43,7 +41,7 @@ public class AuthController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private CartRepository cartRepository;
+    private CartRepositoty cartRepository;
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) {
