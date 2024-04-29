@@ -4,7 +4,10 @@ import com.example.footgate.entities.Order;
 import com.example.footgate.entities.User;
 import com.example.footgate.request.OrderRequest;
 import com.example.footgate.response.MessageResponse;
+import com.example.footgate.response.PaymentResponse;
 import com.example.footgate.service.OrderService;
+import com.example.footgate.service.PaymentService;
+import com.example.footgate.service.PaymentServiceImp;
 import com.example.footgate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,14 +23,17 @@ public class CustomerOrderController {
     @Autowired
     private OrderService orderService;
     @Autowired
+    private PaymentService paymentService;
+    @Autowired
     private UserService userService;
     @PostMapping("/order")
-    public ResponseEntity<Order> createOrder(@RequestBody OrderRequest req,
-                                                  @RequestHeader("Authorization") String jwt) throws Exception {
+    public ResponseEntity<PaymentResponse> createOrder(@RequestBody OrderRequest req,
+                                                       @RequestHeader("Authorization") String jwt) throws Exception {
 
         User user = userService.findUserByJwtToken(jwt);
         Order order = orderService.createOrder(req,user);
-        return new ResponseEntity<>(order,HttpStatus.CREATED);
+        PaymentResponse paymentResponse = paymentService.createPaymentLink(order);
+        return new ResponseEntity<>(paymentResponse,HttpStatus.CREATED);
     }
     @GetMapping("/order/user")
     public ResponseEntity<List<Order>> getOrderHistory(@RequestHeader("Authorization") String jwt) throws Exception {
