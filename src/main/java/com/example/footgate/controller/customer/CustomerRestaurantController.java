@@ -4,6 +4,7 @@ import com.example.footgate.dto.RestaurantDto;
 import com.example.footgate.entities.Restaurant;
 import com.example.footgate.entities.User;
 import com.example.footgate.request.CreateRestaurantRequest;
+import com.example.footgate.response.ApiMessageDto;
 import com.example.footgate.service.RestaurantService;
 import com.example.footgate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
