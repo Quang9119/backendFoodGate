@@ -1,4 +1,4 @@
-package com.example.footgate.controller;
+package com.example.footgate.controller.customer;
 
 import com.example.footgate.dto.RestaurantDto;
 import com.example.footgate.entities.Restaurant;
@@ -26,7 +26,6 @@ public class CustomerRestaurantController {
     public ResponseEntity<List<Restaurant>> searchRestaurant(@RequestHeader("Authorization") String jwt,
                                                              @RequestParam String keyword) throws Exception {
 
-        User user = userService.findUserByJwtToken(jwt);
         List<Restaurant> restaurants = restaurantService.searchRestaurants(keyword);
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
 
@@ -34,7 +33,6 @@ public class CustomerRestaurantController {
     @GetMapping()
     public ResponseEntity<List<Restaurant>> getAllRestaurant(@RequestHeader("Authorization") String jwt) throws Exception {
 
-        User user = userService.findUserByJwtToken(jwt);
         List<Restaurant> restaurants = restaurantService.getAllRestaurants();
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
 

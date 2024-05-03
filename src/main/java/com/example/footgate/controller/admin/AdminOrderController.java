@@ -1,4 +1,4 @@
-package com.example.footgate.controller;
+package com.example.footgate.controller.admin;
 
 import com.example.footgate.entities.Order;
 import com.example.footgate.entities.User;
