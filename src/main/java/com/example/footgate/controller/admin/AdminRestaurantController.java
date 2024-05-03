@@ -1,5 +1,6 @@
 package com.example.footgate.controller.admin;
 
+import com.example.footgate.dto.RestaurantDto;
 import com.example.footgate.entities.Restaurant;
 import com.example.footgate.entities.User;
 import com.example.footgate.request.CreateRestaurantRequest;
@@ -11,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/restaurants")

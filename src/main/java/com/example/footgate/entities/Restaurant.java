@@ -19,6 +19,7 @@ public class Restaurant {
     private Long id;
 
     @OneToOne
+    @JsonIgnore
     private User owner;
 
     private String name;
