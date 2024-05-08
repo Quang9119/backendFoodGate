@@ -19,7 +19,6 @@ public class Restaurant {
     private Long id;
 
     @OneToOne
-    @JsonIgnore
     private User owner;
 
     private String name;
@@ -30,7 +29,7 @@ public class Restaurant {
     private Address address;
 
     @Embedded
-    private ContactInformation contactInfomation;
+    private ContactInformation contactInformation;
 
     private String openingHours;
 
