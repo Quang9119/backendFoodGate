@@ -36,7 +36,7 @@ public class FoodServiceImp implements FoodService {
         food.setVegetarian(req.isVegetarian());
         food.setCreationDate(LocalDateTime.now());
         Food savedFood = foodRepository.save(food);
-        restaurant.getFoods().add(savedFood);
+//        restaurant.getFoods().add(savedFood);
 
         return savedFood;
     }

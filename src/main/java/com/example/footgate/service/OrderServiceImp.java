@@ -69,7 +69,7 @@ public class OrderServiceImp implements OrderService{
         createdOrder.setTotalPrice(totalPrice);
 
         Order savedOrder = orderRepository.save(createdOrder);
-        restaurant.getOrders().add(savedOrder);
+//        restaurant.getOrders().add(savedOrder);
 
         return createdOrder;
     }

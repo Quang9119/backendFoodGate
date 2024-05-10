@@ -22,7 +22,9 @@ public class Cart {
 
     private Long total;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<CartItem> item = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "cart_id") // Đặt tên cột khóa ngoại trong bảng CartItem
+    private List<CartItem> item;
+
 
 }
