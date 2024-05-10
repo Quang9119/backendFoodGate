@@ -29,12 +29,15 @@ public class User {
 
     private USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
-    private List<Order> orders = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+//    private List<Order> orders = new ArrayList<>();
+//    @JsonIgnore
+//    @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+//    private List<Order> orders = new ArrayList<>();
 
-    @ElementCollection
-    private List<RestaurantDto> favorites = new ArrayList<>();
+    @ManyToMany
+    private List<Restaurant> favorites = new ArrayList<>();
 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

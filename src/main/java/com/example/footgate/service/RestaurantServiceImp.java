@@ -33,7 +33,7 @@ public class RestaurantServiceImp implements RestaurantService{
 
         Restaurant restaurant = new Restaurant();
         restaurant.setAddress(address);
-        restaurant.setContactInfomation(req.getContactInformation());
+        restaurant.setContactInformation(req.getContactInformation());
         restaurant.setCuisineType(req.getCuisineType());
         restaurant.setDescription(req.getDescription());
         restaurant.setImages(req.getImages());
@@ -103,18 +103,12 @@ public class RestaurantServiceImp implements RestaurantService{
     }
 
     @Override
-    public RestaurantDto addToFavourites(Long restaurantId, User user) throws Exception {
+    public Restaurant addToFavourites(Long restaurantId, User user) throws Exception {
         Restaurant restaurant = findRestaurantById(restaurantId);
 
-        RestaurantDto restaurantDto = new RestaurantDto();
-        restaurantDto.setDescription(restaurant.getDescription());
-        restaurantDto.setImage(restaurant.getImages());
-        restaurantDto.setTitle(restaurant.getName());
-        restaurantDto.setId(restaurant.getId());
-
         boolean isFavourite = false;
-        List<RestaurantDto> favourites = user.getFavorites();
-        for(RestaurantDto favorite: favourites) {
+        List<Restaurant> favourites = user.getFavorites();
+        for(Restaurant favorite: favourites) {
             if(favorite.getId().equals(restaurantId)) {
                 isFavourite = true;
                 break;
@@ -124,11 +118,11 @@ public class RestaurantServiceImp implements RestaurantService{
             favourites.removeIf(favorite -> favorite.getId().equals(restaurantId));
         }
         else {
-            favourites.add(restaurantDto);
+            favourites.add(restaurant);
         }
 
         userRepository.save(user);
-        return restaurantDto;
+        return restaurant;
     }
 
 

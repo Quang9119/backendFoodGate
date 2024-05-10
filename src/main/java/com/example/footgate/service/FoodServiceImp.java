@@ -32,11 +32,11 @@ public class FoodServiceImp implements FoodService {
         food.setName(req.getName());
         food.setPrice(req.getPrice());
         food.setIngredients(req.getIngredients());
-        food.setSeasonal(req.isSesional());
+        food.setSeasonal(req.isSeasonal());
         food.setVegetarian(req.isVegetarian());
         food.setCreationDate(LocalDateTime.now());
         Food savedFood = foodRepository.save(food);
-        restaurant.getFoods().add(savedFood);
+//        restaurant.getFoods().add(savedFood);
 
         return savedFood;
     }

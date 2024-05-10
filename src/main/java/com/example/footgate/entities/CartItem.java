@@ -19,9 +19,7 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JsonIgnore
-    private Cart cart;
+
 
     @ManyToOne
     private Food food;

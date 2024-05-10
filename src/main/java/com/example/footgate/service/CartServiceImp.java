@@ -41,7 +41,7 @@ public class CartServiceImp implements CartService {
 
         CartItem newCartItem = new CartItem();
         newCartItem.setFood(food);
-        newCartItem.setCart(cart);
+//        newCartItem.setCart(cart);
         newCartItem.setQuantity(req.getQuantity());
         newCartItem.setIngredients(req.getIngredients());
         newCartItem.setTotalPrice(req.getQuantity()*food.getPrice());
@@ -49,7 +49,7 @@ public class CartServiceImp implements CartService {
         CartItem savedCartItem = cartItemRepository.save(newCartItem);
 
         cart.getItem().add(savedCartItem);
-
+        cartRepositoty.save(cart);
         return savedCartItem;
     }
 

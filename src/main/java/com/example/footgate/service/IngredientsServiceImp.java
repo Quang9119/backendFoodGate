@@ -64,7 +64,7 @@ public class IngredientsServiceImp implements IngredientsService{
         ingredientsItem.setCategory(ingredientCategory);
         ingredientsItem.setInStoke(true);
         IngredientsItem item =  ingredientItemRepository.save(ingredientsItem);
-        ingredientCategory.getIngredients().add(item);
+//        ingredientCategory.getIngredients().add(item);
         return item;
     }
 
