@@ -30,8 +30,7 @@ public class CartController {
 
 
     @PutMapping("/cart-item/update")
-    public ResponseEntity<CartItem> updateCartItemQuantity(@RequestBody UpdateCartItemRequest req,
-                                                  @RequestHeader("Authorization") String jwt) throws Exception {
+    public ResponseEntity<CartItem> updateCartItemQuantity(@RequestBody UpdateCartItemRequest req) throws Exception {
 
         CartItem cartItem = cartService.updateCartItemQuantity(req.getCartItemId(), req.getQuantity());
         return new ResponseEntity<>(cartItem,HttpStatus.OK);
